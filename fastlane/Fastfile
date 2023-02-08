@@ -54,14 +54,14 @@ platform :ios do
     
     gym(
       scheme: scheme,
-      export_method: "ad-hoc", 
+      export_method: "development", 
       buildlog_path: "fastlanelog",
       output_directory: output_path,
       include_bitcode: false,
       configuration: "Release",
     )
 
-    pgyer(api_key: pgy_apikey, user_key: pgy_userkey, password: "123456", install_type: "2")
+    pgyer(api_key: pgy_apikey)
   end
   
   lane :upload_testFlight_lane do |options|
