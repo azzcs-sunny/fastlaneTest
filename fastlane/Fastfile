@@ -1,0 +1,182 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+
+platform :ios do
+  scheme_name = ENV['SCHEME']
+  xcworkspace = ENV['XCODEPROJ']
+  key_id = ENV['KEYID']
+  issuer_id = ENV['ISSUERID']
+  key_filepath = ENV['KEYFILEPATH']
+  app_identifier = ENV['APPIDENTIFIER']
+  branch = ENV['BRANCH']
+  pgy_apikey = ENV['PGYAPIKEY']
+  pgy_userkey = ENV['PGYUSERKEY']
+  
+  time = Time.new
+  date_str = time.strftime("%Y-%m-%d-%H-%M-%S")
+  output_path = "./build/#{date_str}"
+
+  lane :beta_lane do |options|
+    # add actions here: https://docs.fastlane.tools/actions
+    if options
+      if options.key? :version_number
+        version_number_lane(version_number:options[:version_number])
+      end
+    end
+    
+    
+    api_key = app_store_connect_api_key(
+      key_id: key_id,
+      issuer_id: issuer_id,
+      key_filepath: key_filepath,
+      duration: 1200, # optional (maximum 1200)
+      in_house: false # optional but may be required if using match/sigh
+    )
+
+    cert(output_path: output_path, api_key: api_key)
+    
+    sigh(output_path: output_path, readonly: false, adhoc: true, app_identifier: app_identifier)
+    
+    gym(
+      scheme: scheme,
+      export_method: "ad-hoc", 
+      buildlog_path: "fastlanelog",
+      output_directory: output_path,
+      include_bitcode: false,
+      configuration: "Release",
+    )
+
+    pgyer(api_key: pgy_apikey, user_key: pgy_userkey, password: "123456", install_type: "2")
+  end
+  
+  lane :upload_testFlight_lane do |options|
+    if options
+      if options.key? :version_number
+        version_number_lane(version_number:options[:version_number])
+      end
+    end
+    
+    api_key = app_store_connect_api_key(
+      key_id: key_id,
+      issuer_id: issuer_id,
+      key_filepath: key_filepath,
+      duration: 1200, # optional (maximum 1200)
+      in_house: false # optional but may be required if using match/sigh
+    )
+
+    cert(output_path: output_path, api_key: api_key)
+    
+    sigh(output_path: output_path, readonly: false, adhoc: false, app_identifier: app_identifier)
+    
+    gym(
+      scheme: scheme,
+      export_method: "app-store", 
+      buildlog_path: "fastlanelog",
+      output_directory: output_path,
+      include_bitcode: false,
+      configuration: "Release",
+    )
+
+    #这里只上传，不分发
+    upload_to_testflight(
+      api_key:api_key,
+      app_identifier:app_identifier,
+      skip_submission: true ,
+      team_id:team_id,
+    )
+  end
+  
+  before_all do |lane, options|
+    source_control
+    cocoapods(use_bundle_exec: false)
+    build_number_lane
+    xcclean(scheme: scheme)
+  end
+  
+  # 所有lane完成之后，可以适用参数lane来区分
+  after_all do |lane|
+  
+  end
+  
+  # 所有lane失败之后，可以适用参数lane来区分
+  error do |lane, exception|
+  
+  end
+  
+  lane :source_control do |lane, options|
+    ensure_git_status_clean # 如果当前工作空间还有未提交的内容就会抛出异常
+    #如果当前分支不是 指定的分支 将会抛出异常
+    ensure_git_branch(
+      branch: branch
+    )
+  end
+  lane :add_tag_lane do |lane, options|
+    tag = options[:git_tag]
+    puts tag
+    if tag
+      add_git_tag(
+        tag: git_tag
+      )
+    end
+  end
+  
+  #修改version number
+  lane :version_number_lane do |options|
+    increment_version_number(
+      version_number: options[:version_number]
+    )
+
+  end
+  
+  #修改build
+  lane :build_number_lane do |lane, options|
+    build_number = get_build_number#获取项目的build_number
+    timeString = build_number[0,8]#取前8位时间相关的字符串
+    build = build_number[8,2]#获取最后两位字符串
+    today = Time.new; #获取当前时间
+    todayString = today.strftime("%Y%m%d") 
+    #如果时间一样则表示是同一天，build+1, 否则build = 1
+    if timeString == todayString 
+      if build[0,1] == "0"
+        build = build_number[9,1]
+      end
+      b = Integer(build)
+      b = b + 1
+      if b < 10
+        build = "0" + b.to_s
+      else
+        build = b.to_s
+      end
+    else
+      build = "01"
+    end
+    build_number = todayString + build
+    #官方文档里并没有选择scheme的入参，所以当一个xcworkspace下有两个targets时，他们的build全部都会被更新。
+    increment_build_number(
+      build_number: build_number # set a specific number
+    )
+    # 打上git标签
+    add_git_tag(
+      tag: build_number
+    )
+
+    # git_commit(message: "update build_number")
+    
+  end
+end
+
