@@ -5,19 +5,79 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000304">
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.0003">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to ios source_control lane" time="0.00096">
+      <testcase classname="fastlane.lanes" name="01: Switch to ios source_control lane" time="0.000206">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_status_clean" time="0.026408">
+      <testcase classname="fastlane.lanes" name="02: ensure_git_status_clean" time="0.024824">
         
-          <failure message="/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;Fastfile:122:in `block (2 levels) in parsing_binding&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:204:in `try_switch_to_lane&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:146:in `trigger_action_by_name&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;Fastfile:105:in `block (2 levels) in parsing_binding&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:291:in `execute_flow_block&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:46:in `block in execute&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/commands_generator.rb:354:in `run&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/commands_generator.rb:43:in `start&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/bin/fastlane:25:in `load&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/bin/fastlane:25:in `&lt;main&gt;&apos;&#10;&#10;Git repository is dirty! Please ensure the repo is in a clean state by committing/stashing/discarding all changes first." />
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="03: ensure_git_branch" time="0.022515">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="04: cocoapods" time="1.335693">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="05: Switch to ios build_number_lane lane" time="0.000262">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: get_build_number" time="2.755191">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: increment_build_number" time="5.433501">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: add_git_tag" time="0.02945">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: xcclean" time="1.547932">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: app_store_connect_api_key" time="0.005733">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: cert" time="1.278588">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="12: sigh" time="5.71102">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="13: gym" time="46.004543">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="14: team_id" time="0.000362">
+        
+          <failure message="/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;Fastfile:100:in `block (2 levels) in parsing_binding&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/commands_generator.rb:354:in `run&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/commands_generator.rb:43:in `start&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/gems/fastlane-2.211.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/bin/fastlane:25:in `load&apos;&#10;/usr/local/Cellar/fastlane/2.209.1/libexec/bin/fastlane:25:in `&lt;main&gt;&apos;&#10;&#10;Please pass your Team ID (e.g. team_id &apos;Q2CBPK58CA&apos;)" />
         
       </testcase>
     
