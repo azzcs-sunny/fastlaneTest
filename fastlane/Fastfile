@@ -17,7 +17,7 @@ default_platform(:ios)
 
 
 platform :ios do
-  scheme_name = ENV['SCHEME']
+  scheme = ENV['SCHEME']
   xcworkspace = ENV['XCODEPROJ']
   key_id = ENV['KEYID']
   issuer_id = ENV['ISSUERID']
