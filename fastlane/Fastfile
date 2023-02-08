@@ -54,7 +54,7 @@ platform :ios do
     
     gym(
       scheme: scheme,
-      export_method: "development", 
+      export_method: "ad-hoc", 
       buildlog_path: "fastlanelog",
       output_directory: output_path,
       include_bitcode: false,
