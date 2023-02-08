@@ -26,7 +26,7 @@ platform :ios do
   branch = ENV['BRANCH']
   pgy_apikey = ENV['PGYAPIKEY']
   pgy_userkey = ENV['PGYUSERKEY']
-  team_id = Env['TEAM_ID']
+  team_id = ENV['TEAM_ID']
   
   time = Time.new
   date_str = time.strftime("%Y-%m-%d-%H-%M-%S")
